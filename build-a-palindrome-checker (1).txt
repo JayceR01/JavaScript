@@ -1,0 +1,90 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="styles.css"></link>
+    <title>Is it a palindrome?</title>
+
+  </head>
+  <body>
+    <h1>Is it a palindrome?</h1>
+    <input id="text-input"></input>
+    <button id="check-btn">Submit</button>
+    <div id="result"></div>
+    <p>Palindrome: a word, phrase, or sequence that reads the same backwards as forwards</p>
+    <script src="./script.js"></script>
+  </body>
+
+</html>
+
+
+** end of undefined **
+
+** start of undefined **
+
+const checkBtn = document.getElementById("check-btn");
+const textInp = document.getElementById("text-input");
+const resultDiv = document.getElementById("result");
+
+// setting a variable to check with and store the input
+const checkForPalindrome = input => {
+  const originalInput = input;
+
+  if (input === "") {
+    alert("Please input a value");
+    return;
+  }
+  resultDiv.replaceChildren();
+
+// converting to lowercase and reversing to see if palindrome
+  const lowerString = input.replace(/[^A-Za-z0-9]/gi, '').toLowerCase();
+  let resultMsg = `<strong>${originalInput}</strong> ${
+  lowerString === [...lowerString].reverse().join('') ? 'is' : 'is not'
+  } a palindrome.`;
+
+  const pEl = document.createElement("p");
+  pEl.className = "user-input";
+  pEl.innerHTML = resultMsg;
+  resultDiv.appendChild(pEl);
+
+
+//showing the result
+  resultDiv.classList.remove("hidden");
+};
+
+// sets value to an empty string and checking for a click when a value in input  
+checkBtn.addEventListener(("click"), () => {
+    checkForPalindrome(textInp.value);
+    textInp.value = "";
+});
+
+
+** end of undefined **
+
+** start of undefined **
+
+html {
+  background-color: #aaaaff;
+}
+
+body {
+  margin-left: 45%;
+  margin-top: 300px;
+  margin-bottom: 50%;
+}
+
+p {
+  color: #000000;
+  border: 1px solid pink;
+  margin-right: 20px;
+  background-color: white;
+  width: 230px;
+}
+
+h1 {
+  color: black;
+}
+
+** end of undefined **
+
